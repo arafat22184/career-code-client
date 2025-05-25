@@ -1,10 +1,24 @@
-import React from "react";
+import React, { use } from "react";
+import { AuthContext } from "../../Context/AuthContext/AuthContext";
 
 const SocialLogin = () => {
+  const { signInWithGoogle } = use(AuthContext);
+  const handleGoogleLogin = () => {
+    signInWithGoogle()
+      .then((result) => {
+        console.log(result.user);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   return (
     <div>
       <div className="divider">OR</div>
-      <button className="btn bg-white w-full text-black border-[#e5e5e5]">
+      <button
+        onClick={handleGoogleLogin}
+        className="btn bg-white w-full text-black border-[#e5e5e5]"
+      >
         <svg
           aria-label="Google logo"
           width="16"
