@@ -3,7 +3,6 @@ import { Link } from "react-router";
 
 const JobLists = ({ jobsCreatedByPromise }) => {
   const jobs = use(jobsCreatedByPromise);
-  console.log(jobs);
   return (
     <div>
       <h2 className="text-3xl">Jobs created by you: {jobs.length}</h2>

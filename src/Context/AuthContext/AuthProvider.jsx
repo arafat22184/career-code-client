@@ -43,15 +43,29 @@ const AuthProvider = ({ children }) => {
       setLoading(false);
       if (currentUser?.email) {
         const userData = { email: currentUser.email };
+
+        // HTTP COOKIE ONLY WAY
         axios
-          .post("http://localhost:3000/jwt", userData)
+          .post("http://localhost:3000/jwt", userData, {
+            withCredentials: true,
+          })
           .then((res) => {
-            const token = res.data.token;
-            localStorage.setItem("token", token);
+            console.log(res.data);
           })
           .catch((error) => {
             console.log(error);
           });
+
+        // LOCAL STORAGE WAY
+        // axios
+        //   .post("http://localhost:3000/jwt", userData)
+        //   .then((res) => {
+        //     const token = res.data.token;
+        //     localStorage.setItem("token", token);
+        //   })
+        //   .catch((error) => {
+        //     console.log(error);
+        //   });
       }
     });
 
