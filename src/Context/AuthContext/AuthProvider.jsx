@@ -44,7 +44,7 @@ const AuthProvider = ({ children }) => {
       if (currentUser?.email) {
         const userData = { email: currentUser.email };
 
-        // HTTP COOKIE ONLY WAY
+        // HTTP COOKIE WAY
         axios
           .post("http://localhost:3000/jwt", userData, {
             withCredentials: true,

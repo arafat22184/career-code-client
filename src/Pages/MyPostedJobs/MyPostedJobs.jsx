@@ -1,10 +1,11 @@
 import React, { Suspense } from "react";
 import useAuth from "../../hooks/useAuth";
 import JobLists from "./JobLists";
-import { jobsCreatedByPromise } from "../../API/JobsApi";
+import useJobApi from "../../API/useJobApi";
 
 const MyPostedJobs = () => {
   const { user } = useAuth();
+  const { jobsCreatedByPromise } = useJobApi();
 
   return (
     <div>
